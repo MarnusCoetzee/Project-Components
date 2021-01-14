@@ -1,0 +1,188 @@
+@import "src/variables";
+
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+// #region --Helper Classes
+
+// #region Colors
+
+// #region Primary
+.g-text-primary {
+  color: $primary;
+}
+
+.g-bg-primary {
+  background-color: $primary;
+}
+
+.g-btn-primary,
+.g-btn-primary:hover {
+  color: white;
+  background-color: $primary;
+}
+
+// #endregion
+
+// #region secondary
+.g-text-secondary {
+  color: $secondary;
+}
+
+.g-bg-secondary {
+  background-color: $secondary;
+}
+
+.g-btn-secondary,
+.g-btn-secondary:hover {
+  background-color: $secondary;
+  color: black;
+}
+// #endregion
+
+// #region danger
+.g-text-danger {
+  color: $danger !important;
+}
+
+.g-bg-danger {
+  background-color: $danger;
+}
+
+.g-bg-danger-light {
+  background-color: $danger !important;
+}
+
+.g-btn-danger,
+.g-btn-danger:hover {
+  background-color: $danger;
+  color: white;
+}
+// #endregion
+
+// #endregion
+
+// #region Font Sizes
+.g-fs-10 {
+  font-size: 10px;
+}
+.g-fs-12 {
+  font-size: 12px;
+}
+.g-fs-14 {
+  font-size: 14px;
+}
+.g-fs-16 {
+  font-size: 16px;
+}
+.g-fs-18 {
+  font-size: 18px;
+}
+.g-fs-20 {
+  font-size: 20px;
+}
+.g-fs-22 {
+  font-size: 22px;
+}
+.g-fs-24 {
+  font-size: 24px;
+}
+
+.g-fw-500 {
+  font-weight: 500;
+}
+
+.g-lh-15 {
+  line-height: 15px;
+}
+// #endregion
+
+// #endregion
+
+// #region --Material Classes
+
+// #region Resizing Material Input Box Fields
+.mat-form-field-flex > .mat-form-field-infix {
+  padding: 0.2em 0px 0.6em 0px !important;
+}
+.mat-form-field-label-wrapper {
+  top: -1.5em;
+}
+
+.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float
+  .mat-form-field-label {
+  transform: translateY(-1.1em) scale(0.75);
+  width: 133.33333%;
+}
+// #endregion
+
+// #endregion
+
+// #region --General
+
+// #region Scrollbar
+.g-thin-track {
+  overflow: auto !important;
+  overflow-x: hidden !important;
+  scrollbar-width: thin;
+}
+.g-thin-track::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgba(166, 166, 166, 0) !important;
+  -webkit-box-shadow: inset 0 0 5px rgba(166, 166, 166, 0) !important;
+  border-radius: 10px !important;
+}
+
+.g-thin-track::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgba(166, 166, 166, 0.5) !important;
+}
+
+.g-thin-track::-webkit-scrollbar {
+  width: 5px !important; /* remove scrollbar space */
+  height: 5px !important;
+  background: transparent !important; /* optional: just make scrollbar invisible */
+  border-radius: 10px !important;
+}
+// #endregion
+
+// #region Scroll Container Styles
+.g-scroll-container {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex-wrap: nowrap !important;
+  background-color: white;
+  .g-container-header {
+    flex-shrink: 0 !important;
+  }
+  .g-container-body {
+    flex-grow: 1 !important;
+    overflow-y: auto !important;
+    min-height: 2em !important;
+  }
+  .g-container-footer {
+    flex-shrink: 0 !important;
+  }
+}
+// #endregion
+
+// #region Randoms
+.g-d-none {
+  display: none;
+}
+
+.g-clickable {
+  cursor: pointer;
+}
+
+.g-pointer-e-none {
+  pointer-events: none;
+}
+// #endregion
+
+// #endregion
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

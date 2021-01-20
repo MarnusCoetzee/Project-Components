@@ -24,6 +24,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'visitors',
+    loadChildren: () =>
+      import('./features/visitors/visitors.module').then(
+        (m) => m.VisitorsModule
+      ),
+  },
+  {
     path: 'login',
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectLoggedInToDashboard },

@@ -1,6 +1,7 @@
+import { LoadingSpinnerModule } from './../../components/loading-spinner/loading-spinner.component';
 import { ChangePasswordDialogComponent } from './components/change-password-dialog/change-password-dialog.component';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AngularMaterialModule } from './../../shared/angular-material/angular-material.module';
 import { Component, OnInit, NgModule } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -25,8 +26,8 @@ export class ForgotPasswordComponent implements OnInit {
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    FormsModule,
     AngularMaterialModule,
+    LoadingSpinnerModule,
   ],
   exports: [ForgotPasswordComponent],
 })

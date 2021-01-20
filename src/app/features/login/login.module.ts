@@ -1,3 +1,4 @@
+import { ReactiveFormsModule } from '@angular/forms';
 import { ForgotPasswordModule } from './forgot-password/forgot-password.component';
 import { AngularMaterialModule } from './../shared/angular-material/angular-material.module';
 import { SignUpModule } from './sign-up/sign-up.component';
@@ -8,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 import { ChangePasswordDialogComponent } from './forgot-password/components/change-password-dialog/change-password-dialog.component';
+import { JoinWorkSpaceModule } from './join-workspace/join-workspace.component';
 
 @NgModule({
   declarations: [LoginComponent, ChangePasswordDialogComponent],
@@ -18,6 +20,8 @@ import { ChangePasswordDialogComponent } from './forgot-password/components/chan
     SignUpModule,
     AngularMaterialModule,
     ForgotPasswordModule,
+    JoinWorkSpaceModule,
+    ReactiveFormsModule,
   ],
 })
 export class LoginModule {}

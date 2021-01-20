@@ -1,0 +1,37 @@
+.container {
+  margin-top: 5vh;
+}
+
+.heading {
+  color: #388cca;
+}
+
+.sub-heading {
+  width: 90%;
+  p {
+    font-size: 20px;
+    font-weight: 500;
+  }
+}
+
+.form {
+  margin-top: 1rem;
+  mat-form-field {
+    width: 100%;
+  }
+  mat-select {
+    width: 100%;
+  }
+}
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
+
+.submit-btn {
+  text-align: center;
+  button {
+    height: 46px;
+    width: 100%;
+  }
+}

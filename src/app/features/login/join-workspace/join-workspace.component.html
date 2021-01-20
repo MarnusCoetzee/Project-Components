@@ -1,0 +1,27 @@
+<div class="spinner" *ngIf="loading">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+
+<div *ngIf="!loading">
+  <div class="container">
+    <div class="heading">
+      <p>Enter your office name</p>
+    </div>
+    <div class="select-box">
+      <mat-form-field appearance="outline">
+        <mat-label>Choose an option</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let office of offices" [value]="office.name">
+            {{ office.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="submit-btn">
+      <button mat-icon-button>
+        Next
+        <mat-icon>arrow_right_alt</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

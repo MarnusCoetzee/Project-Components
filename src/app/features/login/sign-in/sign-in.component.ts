@@ -1,7 +1,11 @@
+import { AuthService } from './../../../core/services/auth/auth.service';
+import {
+  LoadingSpinnerComponent,
+  LoadingSpinnerModule,
+} from './../../components/loading-spinner/loading-spinner.component';
 import { ForgotPasswordModule } from './../forgot-password/forgot-password.component';
 import { AngularMaterialModule } from './../../shared/angular-material/angular-material.module';
 import { CommonModule } from '@angular/common';
-import { AppModule } from './../../../app.module';
 import { Component, OnInit, NgModule } from '@angular/core';
 import {
   FormBuilder,
@@ -18,17 +22,19 @@ import { regex } from '../../shared/utils';
 })
 export class SignInComponent implements OnInit {
   // @ts-ignore
-  form: FormGroup;
+  signInForm: FormGroup;
   regex = regex;
   hide = true;
-  constructor(private fb: FormBuilder) {}
+  // @ts-ignore
+  isLoading: boolean;
+  constructor(private fb: FormBuilder, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.initForm();
   }
 
   private initForm() {
-    this.form = this.fb.group({
+    this.signInForm = this.fb.group({
       email: [
         null,
         { validators: [Validators.required, Validators.pattern(regex.email)] },
@@ -45,6 +51,30 @@ export class SignInComponent implements OnInit {
       ],
     });
   }
+
+  onClickLogout() {
+    if (this.signInForm.valid) {
+      this.isLoading = true;
+      const value = this.signInForm.value;
+      const email = value.email;
+      const password = value.password;
+      try {
+        this.authService
+          .signInWithEmailAndPassword(email, password)
+          .then(() => {
+            this.isLoading = false;
+          })
+          .catch(() => {
+            this.isLoading = false;
+            return;
+          });
+      } catch {
+        console.log('error');
+      }
+    }
+  }
+
+  onClickChangePassword() {}
 }
 
 @NgModule({
@@ -55,6 +85,7 @@ export class SignInComponent implements OnInit {
     FormsModule,
     AngularMaterialModule,
     ForgotPasswordModule,
+    LoadingSpinnerModule,
   ],
   exports: [SignInComponent],
 })

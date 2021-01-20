@@ -1,1 +1,12 @@
-<p>dashboard works!</p>
+<div class="container">
+  <button mat-raised-button (click)="onClickLogout()">Logout</button>
+  <app-forgot-password></app-forgot-password>
+
+  <div *ngIf="authService.user$ | async as user">
+    <p>{{ user.uid }}</p>
+  </div>
+</div>
+
+<app-bottom-nav>
+  <router-outlet></router-outlet>
+</app-bottom-nav>

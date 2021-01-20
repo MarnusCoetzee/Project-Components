@@ -9,7 +9,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { BottomNavModule } from 'ngx-bottom-nav';
+import { MatRadioModule } from '@angular/material/radio';
 @NgModule({
   declarations: [],
   imports: [
@@ -26,6 +30,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatToolbarModule,
     MatIconModule,
     MatDialogModule,
+    MatSelectModule,
+    MatProgressBarModule,
+    BottomNavModule,
+    MatRadioModule,
   ],
   exports: [
     MatButtonModule,
@@ -41,6 +49,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatToolbarModule,
     MatIconModule,
     MatDialogModule,
+    MatSelectModule,
+    MatProgressBarModule,
+    BottomNavModule,
+    MatRadioModule,
   ],
 })
 export class AngularMaterialModule {}

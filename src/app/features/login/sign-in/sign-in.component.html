@@ -1,27 +1,27 @@
-<!--Reactive Form Sign In-->
+<div class="spinner" *ngIf="isLoading">
+  <app-loading-spinner></app-loading-spinner>
+</div>
 
-<div class="container">
-  <div class="card">
-    <mat-card>
+<div *ngIf="!isLoading">
+  <div class="container">
+    <div class="login-box">
+      <div class="heading">
+        <p>Login</p>
+      </div>
       <div class="form">
-        <form [formGroup]="form">
+        <form [formGroup]="signInForm">
+          <div class="form-label">
+            <p>Email</p>
+          </div>
           <mat-form-field appearance="outline">
-            <mat-label>Email</mat-label>
-            <input
-              matInput
-              type="text"
-              placeholder="Email"
-              type="email"
-              formControlName="email"
-            />
-            <mat-icon matSuffix>email</mat-icon>
+            <input matInput type="email" formControlName="email" />
           </mat-form-field>
+          <div class="form-label">
+            <p>Password</p>
+          </div>
           <mat-form-field appearance="outline">
-            <mat-label>Password</mat-label>
             <input
               matInput
-              type="text"
-              placeholder="Password"
               [type]="hide ? 'password' : 'text'"
               formControlName="password"
             />
@@ -35,12 +35,18 @@
               <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
             </button>
           </mat-form-field>
-          <div class="submit-btn">
-            <button mat-raised-button [disabled]="form.invalid">Sign In</button>
-          </div>
         </form>
+      </div>
+      <div class="submit-btn">
+        <button mat-icon-button (click)="onClickLogout()">
+          Next
+          <mat-icon>arrow_right_alt</mat-icon>
+        </button>
+      </div>
+
+      <div class="forgot-password">
         <app-forgot-password></app-forgot-password>
       </div>
-    </mat-card>
+    </div>
   </div>
 </div>

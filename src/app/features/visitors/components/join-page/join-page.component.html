@@ -1,0 +1,89 @@
+<div class="spinner" *ngIf="loading">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+
+<div *ngIf="!loading">
+  <div class="container">
+    <div class="heading">
+      <h1><strong>Hi!</strong> A warm welcome to Specno</h1>
+    </div>
+    <div class="sub-heading">
+      <p>Please take a moment to fill in this form. Thank you!</p>
+    </div>
+
+    <div class="form">
+      <form [formGroup]="form">
+        <mat-label>First Name</mat-label>
+        <mat-form-field appearance="outline">
+          <input matInput formControlName="firstName" type="text" />
+        </mat-form-field>
+        <mat-label>Surname</mat-label>
+        <mat-form-field appearance="outline">
+          <input matInput formControlName="lastName" type="text" />
+        </mat-form-field>
+        <mat-label>Email</mat-label>
+        <mat-form-field appearance="outline">
+          <input matInput formControlName="email" type="email" />
+        </mat-form-field>
+        <mat-label>Reason For Visit</mat-label>
+        <mat-form-field appearance="outline">
+          <mat-select formControlName="visitReason">
+            <mat-option *ngFor="let reason of options" [value]="reason.value">{{
+              reason.value
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-label>Company</mat-label>
+        <mat-form-field appearance="outline">
+          <mat-select formControlName="companyVisited">
+            <mat-option *ngFor="let office of offices" [value]="office.value">{{
+              office.value
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-label>Person Of Contact</mat-label>
+        <mat-form-field appearance="outline">
+          <mat-select formControlName="staffMemberVisited">
+            <mat-option
+              *ngFor="let staffMember of staff"
+              [value]="staffMember.value"
+              >{{ staffMember.value }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </form>
+      <div class="covid-checklist">
+        <div class="covid-heading">
+          <p>Please select an option:</p>
+        </div>
+        <div class="covid-sub-heading">
+          <p>
+            Have you been in contact with someone who has Covid-19 in the past
+            14 day
+          </p>
+          <mat-radio-group [(ngModel)]="hasCovidExposure">
+            <mat-radio-button [value]="true">Yes</mat-radio-button>
+            <mat-radio-button [value]="false">No</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="covid-sub-heading">
+          <p>Do you have any symptoms of Covid-19?</p>
+          <mat-radio-group [(ngModel)]="hasCovidSymptoms">
+            <mat-radio-button [value]="true">Yes</mat-radio-button>
+            <mat-radio-button [value]="false">No</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+      <div class="submit-btn">
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="form.invalid || hasCovidExposure || hasCovidSymptoms"
+          (click)="handleSaveVisitorToDatabase()"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
